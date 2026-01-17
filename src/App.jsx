@@ -27,7 +27,7 @@ const initialCMSData = {
   services: [
     { title: "Equipment Rental", desc: "Premium AV gear for any event size", icon: "📦" },
     { title: "Full Production", desc: "End-to-end event production services", icon: "🎬" },
-    { title: "Technical Support", desc: "24/7 expert technician support", icon: "🔧" },
+    { title: "Technical Support", desc: "Expert technician support", icon: "🔧" },
     { title: "Design Services", desc: "Custom show design & visualization", icon: "✨" },
   ],
   testimonials: [
@@ -324,7 +324,7 @@ function Navigation({ currentPage, navigate, mobileMenuOpen, setMobileMenuOpen, 
           {/* Logo */}
           <button onClick={() => navigate('home')} className="flex items-center gap-3 group">
             <img 
-              src="/prolevel-logo-banner.png" 
+              src="/prolevel-logo-light.svg" 
               alt="Pro Level Rental" 
               className="h-12 w-auto object-contain transform group-hover:scale-105 transition-transform"
             />
@@ -474,7 +474,7 @@ function HomePage({ navigate, setQuoteModal }) {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 mb-8">
                 <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
-                <span className="text-sm text-[#D4AF37]">24/7 Production Support</span>
+                <span className="text-sm text-[#D4AF37]">Production Support</span>
               </div>
               
               <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -509,7 +509,7 @@ function HomePage({ navigate, setQuoteModal }) {
               <div className="flex gap-12 mt-16">
                 {[
                   { value: '500+', label: 'Events Yearly' },
-                  { value: '24/7', label: 'Support' },
+                  { value: '5★', label: 'Support' },
                   { value: '15+', label: 'Years Experience' },
                 ].map((stat, i) => (
                   <div key={i}>
@@ -551,11 +551,11 @@ function HomePage({ navigate, setQuoteModal }) {
                 })}
 
                 {/* Center Logo */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#28323C] rounded-3xl flex items-center justify-center shadow-2xl shadow-[#D4AF37]/30 p-6">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-48 rounded-3xl flex items-center justify-center shadow-2xl shadow-[#D4AF37]/30">
                   <img 
-                    src="/prolevel-logo-square.jpg" 
+                    src="/prolevel-logo-light.svg" 
                     alt="Pro Level Rental" 
-                    className="w-full h-full object-contain rounded-2xl"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>
@@ -848,8 +848,8 @@ function ServicesPage() {
     },
     {
       title: "Technical Support",
-      description: "24/7 expert support for all your technical needs. Our experienced engineers ensure flawless execution every time.",
-      features: ["24/7 Availability", "Remote Support", "On-site Engineers", "Equipment Training", "Troubleshooting", "System Integration"],
+      description: "Expert support for all your technical needs. Our experienced engineers ensure flawless execution every time.",
+      features: ["Business Hours Support", "Remote Support", "On-site Engineers", "Equipment Training", "Troubleshooting", "System Integration"],
       icon: "🔧"
     },
   ];
@@ -1026,7 +1026,7 @@ function ContactPage() {
           <div>
             <div className="space-y-8 mb-12">
               {[
-                { icon: <Icons.Phone />, title: "Phone", value: "(555) 123-4567", subtitle: "24/7 Emergency Support" },
+                { icon: <Icons.Phone />, title: "Phone", value: "(555) 123-4567", subtitle: "Business Hours Support" },
                 { icon: <Icons.Mail />, title: "Email", value: "info@prolevelrental.com", subtitle: "Response within 1 hour" },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-6 p-6 rounded-2xl bg-[#28323C] border border-[#585858]/30">
@@ -1048,19 +1048,12 @@ function ContactPage() {
               <div className="space-y-2 text-[#C8C8C8]">
                 <div className="flex justify-between">
                   <span>Monday - Friday</span>
-                  <span>8:00 AM - 8:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
                   <span>9:00 AM - 5:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span>Emergency Only</span>
+                  <span>Saturday - Sunday</span>
+                  <span>Closed</span>
                 </div>
-              </div>
-              <div className="mt-4 pt-4 border-t border-white/10 text-sm text-[#D4AF37]">
-                🔴 24/7 Emergency Support Available
               </div>
             </div>
           </div>
