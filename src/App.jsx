@@ -323,16 +323,11 @@ function Navigation({ currentPage, navigate, mobileMenuOpen, setMobileMenuOpen, 
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button onClick={() => navigate('home')} className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#E5C158] rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform">
-                <span className="text-black font-bold text-xl">PL</span>
-              </div>
-              <div className="absolute -inset-1 bg-gradient-to-br from-[#D4AF37] to-[#E5C158] rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity" />
-            </div>
-            <div className="hidden sm:block">
-              <div className="text-xl font-bold tracking-tight">PRO LEVEL</div>
-              <div className="text-xs text-gray-400 tracking-widest">RENTAL</div>
-            </div>
+            <img 
+              src="/prolevel-logo-banner.png" 
+              alt="Pro Level Rental" 
+              className="h-12 w-auto object-contain transform group-hover:scale-105 transition-transform"
+            />
           </button>
 
           {/* Desktop Nav */}
@@ -556,8 +551,12 @@ function HomePage({ navigate, setQuoteModal }) {
                 })}
 
                 {/* Center Logo */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-[#D4AF37] to-[#E5C158] rounded-3xl flex items-center justify-center shadow-2xl shadow-[#D4AF37]/30">
-                  <span className="text-4xl font-bold text-black">PL</span>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#28323C] rounded-3xl flex items-center justify-center shadow-2xl shadow-[#D4AF37]/30 p-6">
+                  <img 
+                    src="/prolevel-logo-square.jpg" 
+                    alt="Pro Level Rental" 
+                    className="w-full h-full object-contain rounded-2xl"
+                  />
                 </div>
               </div>
             </div>
@@ -587,7 +586,7 @@ function HomePage({ navigate, setQuoteModal }) {
             {cmsData.services.map((service, i) => (
               <div
                 key={i}
-                className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/50 transition-all hover:-translate-y-2"
+                className="group relative p-8 rounded-2xl bg-[#28323C] border border-[#585858]/30 hover:border-[#D4AF37]/50 transition-all hover:-translate-y-2"
               >
                 <div className="text-5xl mb-6">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
@@ -621,7 +620,7 @@ function HomePage({ navigate, setQuoteModal }) {
             {cmsData.equipment.filter(e => e.featured).slice(0, 4).map((item) => (
               <div
                 key={item.id}
-                className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/30 transition-all overflow-hidden"
+                className="group relative p-6 rounded-2xl bg-[#28323C] border border-[#585858]/20 hover:border-[#D4AF37]/30 transition-all overflow-hidden"
               >
                 <div className="absolute top-4 right-4">
                   <span className="px-3 py-1 text-xs font-medium rounded-full bg-[#D4AF37]/20 text-[#D4AF37]">
@@ -776,7 +775,7 @@ function EquipmentPage() {
                 className={`px-5 py-3 rounded-xl font-medium transition-all ${
                   activeCategory === cat
                     ? 'bg-[#D4AF37] text-black'
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
+                    : 'bg-[#28323C] text-[#C8C8C8] hover:bg-[#585858] hover:text-white border border-[#585858]/30'
                 }`}
               >
                 {cat}
@@ -790,7 +789,7 @@ function EquipmentPage() {
           {filteredEquipment.map((item) => (
             <div
               key={item.id}
-              className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/30 transition-all hover:-translate-y-1"
+              className="group relative p-6 rounded-2xl bg-[#28323C] border border-[#585858]/20 hover:border-[#D4AF37]/30 transition-all hover:-translate-y-1"
             >
               {item.featured && (
                 <div className="absolute top-4 left-4 flex items-center gap-1 px-2 py-1 bg-yellow-500/20 rounded-full text-yellow-500 text-xs">
@@ -874,27 +873,27 @@ function ServicesPage() {
           {services.map((service, i) => (
             <div
               key={i}
-              className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center p-8 lg:p-12 rounded-3xl bg-white/5 border border-white/10`}
+              className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center p-8 lg:p-12 rounded-3xl bg-[#28323C] border border-[#585858]/30`}
             >
               <div className="flex-1">
                 <div className="text-6xl mb-6">{service.icon}</div>
                 <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                   {service.title}
                 </h2>
-                <p className="text-lg text-gray-400 mb-8">{service.description}</p>
+                <p className="text-lg text-[#C8C8C8] mb-8">{service.description}</p>
                 <div className="grid grid-cols-2 gap-4">
                   {service.features.map((feature, j) => (
                     <div key={j} className="flex items-center gap-3">
                       <div className="w-6 h-6 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
                         <Icons.Check />
                       </div>
-                      <span className="text-gray-300">{feature}</span>
+                      <span className="text-[#C8C8C8]">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="flex-1 w-full max-w-md">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-[#e94560]/20 to-transparent border border-white/10 flex items-center justify-center">
+                <div className="aspect-square rounded-2xl bg-gradient-to-br from-[#585858]/30 to-[#28323C] border border-[#585858]/30 flex items-center justify-center">
                   <span className="text-9xl">{service.icon}</span>
                 </div>
               </div>
@@ -938,10 +937,14 @@ function AboutPage() {
             </p>
           </div>
           <div className="relative">
-            <div className="aspect-video rounded-2xl bg-gradient-to-br from-[#16213e] to-[#0a0a0f] border border-white/10 overflow-hidden flex items-center justify-center">
+            <div className="aspect-video rounded-2xl bg-gradient-to-br from-[#28323C] to-[#0a0a0f] border border-white/10 overflow-hidden flex items-center justify-center p-8">
               <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-[#D4AF37] to-[#E5C158] rounded-2xl flex items-center justify-center">
-                  <span className="text-3xl font-bold text-black">PL</span>
+                <div className="w-32 h-32 mx-auto mb-4 bg-[#585858] rounded-2xl flex items-center justify-center p-4">
+                  <img 
+                    src="/prolevel-logo-square.jpg" 
+                    alt="Pro Level Rental" 
+                    className="w-full h-full object-contain rounded-xl"
+                  />
                 </div>
                 <div className="text-2xl font-bold">Pro Level Rental</div>
                 <div className="text-gray-500">Est. 2010</div>
@@ -1026,12 +1029,12 @@ function ContactPage() {
                 { icon: <Icons.Phone />, title: "Phone", value: "(555) 123-4567", subtitle: "24/7 Emergency Support" },
                 { icon: <Icons.Mail />, title: "Email", value: "info@prolevelrental.com", subtitle: "Response within 1 hour" },
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-6 p-6 rounded-2xl bg-white/5 border border-white/10">
+                <div key={i} className="flex items-start gap-6 p-6 rounded-2xl bg-[#28323C] border border-[#585858]/30">
                   <div className="w-14 h-14 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37]">
                     {item.icon}
                   </div>
                   <div>
-                    <div className="text-sm text-gray-500 mb-1">{item.title}</div>
+                    <div className="text-sm text-[#C8C8C8] mb-1">{item.title}</div>
                     <div className="text-xl font-semibold mb-1">{item.value}</div>
                     <div className="text-sm text-[#D4AF37]">{item.subtitle}</div>
                   </div>
@@ -1040,9 +1043,9 @@ function ContactPage() {
             </div>
 
             {/* Office Hours */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-6 rounded-2xl bg-[#28323C] border border-[#585858]/30">
               <h3 className="font-semibold text-lg mb-4">Office Hours</h3>
-              <div className="space-y-2 text-gray-400">
+              <div className="space-y-2 text-[#C8C8C8]">
                 <div className="flex justify-between">
                   <span>Monday - Friday</span>
                   <span>8:00 AM - 8:00 PM</span>
@@ -1076,54 +1079,54 @@ function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm text-gray-400 mb-2">Name *</label>
+                    <label className="block text-sm text-[#C8C8C8] mb-2">Name *</label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#D4AF37] outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#28323C] border border-[#585858]/30 focus:border-[#D4AF37] outline-none transition-colors text-white"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-gray-400 mb-2">Email *</label>
+                    <label className="block text-sm text-[#C8C8C8] mb-2">Email *</label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#D4AF37] outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#28323C] border border-[#585858]/30 focus:border-[#D4AF37] outline-none transition-colors text-white"
                     />
                   </div>
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm text-gray-400 mb-2">Phone</label>
+                    <label className="block text-sm text-[#C8C8C8] mb-2">Phone</label>
                     <input
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#D4AF37] outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#28323C] border border-[#585858]/30 focus:border-[#D4AF37] outline-none transition-colors text-white"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-gray-400 mb-2">Company</label>
+                    <label className="block text-sm text-[#C8C8C8] mb-2">Company</label>
                     <input
                       type="text"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#D4AF37] outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#28323C] border border-[#585858]/30 focus:border-[#D4AF37] outline-none transition-colors text-white"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-400 mb-2">Message *</label>
+                  <label className="block text-sm text-[#C8C8C8] mb-2">Message *</label>
                   <textarea
                     required
                     rows="5"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#D4AF37] outline-none transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[#28323C] border border-[#585858]/30 focus:border-[#D4AF37] outline-none transition-colors resize-none text-white"
                   />
                 </div>
                 <button
